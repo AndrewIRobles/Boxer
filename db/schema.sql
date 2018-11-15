@@ -1,3 +1,4 @@
+Drop database boxers;
 CREATE DATABASE `boxers` ;
 
 Create TABLE boxers.user(
@@ -26,7 +27,7 @@ Create TABLE boxers.user(
 
 Create table boxers.productView(
     productView_ID int not null auto_increment PRIMARY KEY,
-    userID int,
+    user_ID int,
     listing_id int,
     dateViewed DATE,
     tags varchar(100),
@@ -89,4 +90,22 @@ create table boxers.itemsSold(
     retailPrice decimal(20,4),
     inBoxItem tinyInt(1)
 
+);
+
+create table boxers.session(
+	session_id  int not null auto_increment PRIMARY KEY,
+    user_ID int,
+    emailAddress varchar(50),
+    isActive tinyint(1),
+    startTime_tsz int,
+    endTime_tsz int
+);
+
+create table boxers.cart(
+	cart_id  int not null auto_increment PRIMARY KEY,
+    user_id int,
+    session_id int,
+    box_id int
+    
+    
 );
